@@ -3,6 +3,7 @@ header('Content-Type: application/json');
 $conn = new mysqli("localhost", "root", "", "abec_dons");
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
+// Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $description = $_POST['description'];
