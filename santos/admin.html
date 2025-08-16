@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABEC – Dashboard Admin (Santos)</title>
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            santosRed: '#D32F2F',
+            santosWhite: '#FFFFFF',
+            santosBlue: '#1976D2',
+            santosGray: '#F5F5F5'
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <style>[x-cloak]{display:none}</style>
+</head>
+<body class="bg-santosGray text-gray-900" x-data="adminApp()" x-init="init()">
+  <!-- Topbar -->
+  <header class="bg-santosBlue text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-full bg-white/20 grid place-content-center font-bold">A</div>
+        <h1 class="text-lg font-semibold">Dashboard Admin – Santos</h1>
+      </div>
+      <div class="flex items-center space-x-3">
+        <span class="text-sm opacity-80">admin@abec.org</span>
+        <button @click="logout()" class="px-3 py-1.5 rounded-md bg-white text-santosBlue text-sm hover:bg-santosGray">Déconnexion</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-gray-600 mb-6">Accueil / <span class="text-gray-900 font-medium">Admin</span> / <span class="text-gray-900 font-semibold">Santos</span></nav>
+
+    <!-- Quick Actions -->
+    <div class="flex flex-wrap items-center gap-3 mb-6">
+      <button @click="openCreate()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-santosBlue text-white hover:bg-blue-700">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 4.5a.75.75 0 01.75.75v6h6a.75.75 0 010 1.5h-6v6a.75.75 0 01-1.5 0v-6h-6a.75.75 0 010-1.5h6v-6A.75.75 0 0112 4.5z"/></svg>
+        Nouveau média
+      </button>
+      <button @click="refresh()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border hover:bg-gray-50">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M3 12a9 9 0 1115.48 5.94l1.53 1.53a.75.75 0 11-1.06 1.06l-1.65-1.65A9 9 0 113 12zm9-6a6 6 0 00-6 6h1.5a4.5 4.5 0 118.39-2.06.75.75 0 101.36-.68A6 6 0 0012 6z"/></svg>
+        Actualiser
+      </button>
+      <div class="ml-auto flex items-center gap-2">
+        <input x-model="q" @input="applyFilters" type="search" placeholder="Rechercher…" class="px-3 py-2 rounded-xl border w-64">
+        <select x-model="branch" @change="applyFilters" class="px-3 py-2 rounded-xl border">
+          <option value="">Toutes branches</option>
+          <option value="santos">Santos</option>
+          <option value="autre">Autre</option>
+        </select>
+        <select x-model="typeFilter" @change="applyFilters" class="px-3 py-2 rounded-xl border">
+          <option value="">Tous types</option>
+          <option value="image">Image</option>
+          <option value="video">Vidéo</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="rounded-2xl bg-white p-5 shadow-sm border">
+        <p class="text-sm text-gray-500">Total médias</p>
+        <p class="text-3xl font-semibold" x-text="stats.total"></p>
+      </div>
+      <div class="rounded-2xl bg-white p-5 shadow-sm border">
+        <p class="text-sm text-gray-500">Images</p>
+        <p class="text-3xl font-semibold" x-text="stats.images"></p>
+      </div>
+      <div class="rounded-2xl bg-white p-5 shadow-sm border">
+        <p class="text-sm text-gray-500">Vidéos</p>
+        <p class="text-3xl font-semibold" x-text="stats.videos"></p>
+      </div>
+      <div class="rounded-2xl bg-white p-5 shadow-sm border">
+        <p class="text-sm text-gray-500">Likes ❤ / 👍</p>
+        <p class="text-3xl font-semibold"><span x-text="stats.hearts"></span> / <span x-text="stats.likes"></span></p>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section class="rounded-2xl overflow-hidden bg-white border shadow-sm">
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-left text-sm">
+          <thead class="bg-gray-50 text-gray-600">
+            <tr>
+              <th class="px-4 py-3">ID</th>
+              <th class="px-4 py-3">Aperçu</th>
+              <th class="px-4 py-3">Type</th>
+              <th class="px-4 py-3">Description</th>
+              <th class="px-4 py-3">Branche</th>
+              <th class="px-4 py-3">❤</th>
+              <th class="px-4 py-3">👍</th>
+              <th class="px-4 py-3 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="m in paged" :key="m.id">
+              <tr class="border-t">
+                <td class="px-4 py-3 align-top" x-text="m.id"></td>
+                <td class="px-4 py-3 align-top">
+                  <template x-if="m.type==='image'">
+                    <img :src="m.url" class="w-24 h-16 object-cover rounded-md" />
+                  </template>
+                  <template x-if="m.type==='video'">
+                    <video class="w-24 h-16 object-cover rounded-md" muted>
+                      <source :src="m.url" type="video/mp4" />
+                    </video>
+                  </template>
+                </td>
+                <td class="px-4 py-3 align-top uppercase" x-text="m.type"></td>
+                <td class="px-4 py-3 align-top max-w-xs" x-text="m.description"></td>
+                <td class="px-4 py-3 align-top" x-text="m.branch"></td>
+                <td class="px-4 py-3 align-top" x-text="m.hearts"></td>
+                <td class="px-4 py-3 align-top" x-text="m.likes"></td>
+                <td class="px-4 py-3 align-top text-right space-x-2">
+                  <button @click="openEdit(m)" class="px-3 py-1.5 rounded-lg border hover:bg-gray-50">Éditer</button>
+                  <button @click="confirmDelete(m)" class="px-3 py-1.5 rounded-lg bg-red-50 text-red-700 border border-red-200 hover:bg-red-100">Supprimer</button>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-between px-4 py-3 border-t bg-gray-50">
+        <p class="text-sm">Page <span x-text="page"></span> / <span x-text="totalPages"></span></p>
+        <div class="space-x-2">
+          <button @click="prev()" class="px-3 py-1.5 rounded-lg border bg-white hover:bg-gray-50">Précédent</button>
+          <button @click="next()" class="px-3 py-1.5 rounded-lg border bg-white hover:bg-gray-50">Suivant</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Create / Edit Modal -->
+  <div x-show="modalOpen" x-cloak class="fixed inset-0 z-50 grid place-items-center p-4">
+    <div class="absolute inset-0 bg-black/50" @click="closeModal()"></div>
+    <div class="relative w-full max-w-md rounded-2xl bg-white shadow-xl">
+      <div class="flex items-center justify-between px-4 py-2 border-b">
+        <h3 class="text-lg font-semibold" x-text="editing ? 'Modifier le média' : 'Nouveau média'"></h3>
+        <button @click="closeModal()" class="p-2 rounded-md hover:bg-gray-100">✕</button>
+      </div>
+
+      <form @submit.prevent="submitForm" class="px-4 py-4 space-y-3" enctype="multipart/form-data">
+        <!-- Type -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <label class="block">
+            <span class="text-sm text-gray-700">Type</span>
+            <select x-model="form.type" class="mt-1 w-full px-2 py-1.5 rounded-xl border text-sm" required>
+              <option value="image">Image</option>
+              <option value="video">Vidéo</option>
+            </select>
+          </label>
+          <label class="block">
+            <span class="text-sm text-gray-700">Branche</span>
+            <select x-model="form.branch" class="mt-1 w-full px-2 py-1.5 rounded-xl border text-sm" required>
+              <option value="santos">Santos</option>
+              <option value="autre">Autre</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- URL ou Fichier -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <label class="block">
+            <span class="text-sm text-gray-700">URL (optionnel)</span>
+            <input x-model="form.url" type="url" placeholder="https://…" class="mt-1 w-full px-2 py-1.5 rounded-xl border text-sm" />
+          </label>
+          <div class="block">
+            <span class="text-sm text-gray-700">Fichier (optionnel)</span>
+            <div @dragover.prevent @drop.prevent="onDrop($event)" class="mt-1 border-2 border-dashed rounded-xl p-2 text-center">
+              <input x-ref="file" type="file" class="hidden" @change="onFile($event)" accept="image/*,video/mp4" />
+              <button type="button" @click="$refs.file.click()" class="px-2 py-1 rounded-lg border bg-white hover:bg-gray-50 text-sm">Choisir un fichier</button>
+              <p class="text-xs text-gray-500 mt-1" x-text="fileName || 'PNG/JPG ou MP4 (≤ 50 Mo)' "></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <label class="block">
+          <span class="text-sm text-gray-700">Description</span>
+          <textarea x-model="form.description" rows="2" class="mt-1 w-full px-2 py-1.5 rounded-xl border text-sm" placeholder="Texte descriptif…" required></textarea>
+        </label>
+
+        <!-- Aperçu -->
+        <template x-if="previewUrl">
+          <div class="border rounded-xl p-2">
+            <p class="text-sm font-medium mb-1">Aperçu</p>
+            <template x-if="form.type==='image'">
+              <img :src="previewUrl" class="w-full h-32 object-cover rounded-lg" />
+            </template>
+            <template x-if="form.type==='video'">
+              <video controls class="w-full h-32 object-cover rounded-lg"><source :src="previewUrl" type="video/mp4"></video>
+            </template>
+          </div>
+        </template>
+
+        <!-- Footer -->
+        <div class="flex items-center justify-end gap-2 pt-1">
+          <button type="button" @click="closeModal()" class="px-3 py-1.5 rounded-xl border bg-white hover:bg-gray-50 text-sm">Annuler</button>
+          <button type="submit" class="px-3 py-1.5 rounded-xl bg-santosBlue text-white hover:bg-blue-700 text-sm" x-text="editing ? 'Mettre à jour' : 'Enregistrer'"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete confirm -->
+  <div x-show="confirmOpen" x-cloak class="fixed inset-0 z-50 grid place-items-center p-4">
+    <div class="absolute inset-0 bg-black/50" @click="confirmOpen=false"></div>
+    <div class="relative w-full max-w-md rounded-2xl bg-white shadow-xl p-6">
+      <h3 class="text-lg font-semibold mb-2">Supprimer ce média ?</h3>
+      <p class="text-sm text-gray-600 mb-4">Cette action est irréversible.</p>
+      <div class="flex items-center justify-end gap-3">
+        <button @click="confirmOpen=false" class="px-4 py-2 rounded-xl border bg-white hover:bg-gray-50">Annuler</button>
+        <button @click="doDelete()" class="px-4 py-2 rounded-xl bg-red-600 text-white hover:bg-red-700">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div x-show="toast.show" x-transition x-cloak class="fixed bottom-6 right-6 z-50">
+    <div class="px-4 py-3 rounded-xl shadow-lg border bg-white">
+      <p class="text-sm" x-text="toast.message"></p>
+    </div>
+  </div>
+
+  <script>
+    function adminApp() {
+      return {
+        // Filters & pagination
+        q: '', branch: '', typeFilter: '',
+        page: 1, perPage: 8,
+        get totalPages() { return Math.max(1, Math.ceil(this.filtered.length / this.perPage)); },
+        get paged() { const start = (this.page - 1) * this.perPage; return this.filtered.slice(start, start + this.perPage); },
+
+        // Data
+        media: [],
+        get filtered() {
+          return this.media.filter(m =>
+            (!this.branch || m.branch === this.branch) &&
+            (!this.typeFilter || m.type === this.typeFilter) &&
+            (!this.q || (m.description || '').toLowerCase().includes(this.q.toLowerCase()) || (m.id + '').includes(this.q))
+          );
+        },
+        stats: { total: 0, images: 0, videos: 0, likes: 0, hearts: 0 },
+
+        // Modal state
+        modalOpen: false, editing: false, current: null,
+        form: { id: null, type: 'image', url: '', description: '', branch: 'santos' },
+        file: null, fileName: '', previewUrl: '',
+
+        // Delete confirm
+        confirmOpen: false, toDelete: null,
+
+        // Toast
+        toast: { show: false, message: '' },
+        notify(msg) { this.toast.message = msg; this.toast.show = true; setTimeout(() => this.toast.show = false, 2000); },
+
+        init() { this.loadMedia(); },
+        refresh() { this.loadMedia(); },
+        logout() { this.notify('Déconnexion simulée'); },
+
+        applyFilters() { this.page = 1; },
+        next() { if (this.page < this.totalPages) this.page++; },
+        prev() { if (this.page > 1) this.page--; },
+
+        computeStats() {
+          const s = { total: this.media.length, images: 0, videos: 0, likes: 0, hearts: 0 };
+          this.media.forEach(m => { s[m.type + 's']++; s.likes += m.likes || 0; s.hearts += m.hearts || 0; });
+          this.stats = s;
+        },
+
+        loadMedia() {
+          // Chargement des données locales (simule get_media.php)
+          this.media = [
+            { id: 1, type: 'image', url: 'https://via.placeholder.com/150', description: 'Événement médical Santos - Photo 1', branch: 'santos', likes: 12, hearts: 5 },
+            { id: 2, type: 'image', url: 'https://via.placeholder.com/150', description: 'Campagne de santé communautaire - Photo 2', branch: 'santos', likes: 7, hearts: 3 },
+            { id: 3, type: 'video', url: 'https://www.w3schools.com/html/mov_bbb.mp4', description: 'Vidéo de sensibilisation à la santé', branch: 'santos', likes: 15, hearts: 9 },
+            { id: 4, type: 'video', url: 'https://www.w3schools.com/html/mov_bbb.mp4', description: 'Formation premiers secours', branch: 'santos', likes: 4, hearts: 2 },
+          ];
+          this.computeStats();
+        },
+
+        openCreate() {
+          this.editing = false; this.current = null; this.form = { id: null, type: 'image', url: '', description: '', branch: 'santos' };
+          this.file = null; this.fileName = ''; this.previewUrl = '';
+          this.modalOpen = true;
+        },
+        openEdit(m) {
+          this.editing = true; this.current = m; this.form = { id: m.id, type: m.type, url: m.url, description: m.description, branch: m.branch };
+          this.file = null; this.fileName = ''; this.previewUrl = m.url;
+          this.modalOpen = true;
+        },
+        closeModal() { this.modalOpen = false; },
+
+        onFile(e) {
+          const f = e.target.files[0]; if (!f) return;
+          this.file = f; this.fileName = f.name; this.previewUrl = URL.createObjectURL(f);
+          if (!this.form.type) { this.form.type = f.type.startsWith('video') ? 'video' : 'image'; }
+        },
+        onDrop(e) {
+          const f = e.dataTransfer.files[0]; if (!f) return;
+          this.file = f; this.fileName = f.name; this.previewUrl = URL.createObjectURL(f);
+          if (!this.form.type) { this.form.type = f.type.startsWith('video') ? 'video' : 'image'; }
+        },
+
+        submitForm() {
+          try {
+            // Simule add_media.php ou update_media.php
+            if (!this.editing) {
+              const newId = this.media.length + 1;
+              this.media.push({ id: newId, type: this.form.type, url: this.previewUrl || this.form.url, description: this.form.description, branch: this.form.branch, likes: 0, hearts: 0 });
+              this.notify('Média ajouté');
+            } else {
+              const index = this.media.findIndex(m => m.id === this.form.id);
+              this.media[index] = { ...this.media[index], ...this.form, url: this.previewUrl || this.form.url };
+              this.notify('Média mis à jour');
+            }
+            this.closeModal();
+            this.computeStats();
+          } catch (e) { this.notify('Erreur : ' + e.message); }
+        },
+
+        confirmDelete(m) { this.toDelete = m; this.confirmOpen = true; },
+        doDelete() {
+          try {
+            // Simule delete_media.php
+            this.media = this.media.filter(m => m.id !== this.toDelete.id);
+            this.notify('Média supprimé');
+            this.confirmOpen = false;
+            this.computeStats();
+          } catch (e) { this.notify('Erreur : ' + e.message); }
+        },
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "hachther/mesomb-php": "^3.1"
+    }
+}
