@@ -111,7 +111,7 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <img src="santos.png" alt="Logo ABEC" class="h-15 w-auto md:h-16">
+            <img src="santos.png" alt="Logo ABEC" class="w-20 md:w-13">
         </div>
         <!-- Navigation Desktop -->
         <nav class="hidden md:flex space-x-4">

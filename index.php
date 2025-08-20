@@ -89,7 +89,7 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <div class="flex-shrink-0">
-  <img src="image/logo.png" alt="Logo ABEC" class="h-15 w-auto md:h-16">
+   <img src="image/logo.png" alt="Logo ABEC" class="w-20 md:w-13">
 </div>
 
           
@@ -100,8 +100,8 @@
           <a href="#about" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">À propos</a>
           <a href="#actions" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Nos Actions</a>
           <a href="#contact" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Contact</a>
-          <a href="branches.html" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Branches</a>
-          <a href="evenements.html" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Événement à Venir</a>
+          <a href="santos/branches.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Branches</a>
+      <a href="santos/evenements.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Événement à Venir</a>
         </nav>
 
         <!-- Menu Mobile -->
@@ -124,8 +124,8 @@
       <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">À propos</a>
       <a href="#actions" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Nos Actions</a>
       <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Contact</a>
-      <a href="branches.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Branches</a>
-      <a href="evenements.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Événement à Venir</a>
+      <a href="santos/branches.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Branches</a>
+      <a href="santos/evenements.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-200">Événement à Venir</a>
     </div>
   </header>
 
