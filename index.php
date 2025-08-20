@@ -88,9 +88,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
-        <div class="flex-shrink-0">
-   <img src="santos/image/logo.png" alt="Logo ABEC" class="w-20 md:w-13">
-</div>
+ <div class="flex-shrink-0 w-2/12 h-auto ">
+          <img src="abec.png" alt="logo " class="md:w-5/12">
+        </div>
+
 
           
         <!-- Navigation Desktop -->
