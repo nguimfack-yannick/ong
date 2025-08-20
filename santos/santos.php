@@ -115,10 +115,10 @@
         </div>
         <!-- Navigation Desktop -->
         <nav class="hidden md:flex space-x-4">
-          <a href="#top" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Accueil</a>
+          <!-- <a href="#top" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Accueil</a>
           <a href="#about" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">À propos</a>
           <a href="#actions" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Nos Actions</a>
-          <a href="#contact" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Contact</a>
+          <a href="#contact" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Contact</a> -->
           <a href="branches.html" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Branches</a>
           <a href="evenements.html" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Événement à Venir</a>
         </nav>

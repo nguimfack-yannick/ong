@@ -6,7 +6,10 @@
   <title>ABEC - ONG Humanitaire</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
+
+  <link rel="icon" type="image/png" sizes="64x64" href="image/logo.png">
+
+
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -86,11 +89,12 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <div class="flex-shrink-0">
-  <img src="logo.png" alt="Logo ABEC" class="h-15 w-auto md:h-16">
+  <img src="image/logo.png" alt="Logo ABEC" class="h-15 w-auto md:h-16">
 </div>
 
           
         <!-- Navigation Desktop -->
+    
         <nav class="hidden md:flex space-x-4">
           <a href="#top" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Accueil</a>
           <a href="#about" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">À propos</a>
