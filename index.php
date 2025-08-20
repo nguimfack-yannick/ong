@@ -89,7 +89,7 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <div class="flex-shrink-0">
-   <img src="image/logo.png" alt="Logo ABEC" class="w-20 md:w-13">
+   <img src="santos/image/logo.png" alt="Logo ABEC" class="w-20 md:w-13">
 </div>
 
           

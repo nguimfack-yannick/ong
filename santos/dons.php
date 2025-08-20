@@ -91,6 +91,7 @@
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div class="flex items-center justify-between h-16">
                   <!-- Titre -->
+                  
                   <div class="flex-shrink-0 w-2/12 h-auto">
                       <img src="image/logo.png" alt="logo" class="md:w-5/12">
                   </div>
