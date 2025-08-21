@@ -142,7 +142,7 @@
           Une ONG dédiée à l’aide humanitaire : dons essentiels pour hôpitaux et orphelinats.
         </p>
         <div class="mt-8">
-          <a href="dons.php" class="inline-block bg-white text-primary px-8 py-3 font-medium rounded-md hover:bg-gray-100 transition transform hover:scale-105">
+          <a href="santos/dons.php" class="inline-block bg-white text-primary px-8 py-3 font-medium rounded-md hover:bg-gray-100 transition transform hover:scale-105">
             Faites un don
           </a>
           <a href="#about" class="inline-block ml-4 bg-primary text-white px-8 py-3 font-medium rounded-md hover:bg-secondary transition transform hover:scale-105">

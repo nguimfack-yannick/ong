@@ -5,6 +5,7 @@ $username = "u456215259_abec_dons"; // Remplace par ton utilisateur MySQL
 $password = ""; // Remplace par ton mot de passe MySQL
 $dbname = "u456215259_abec_dons";
 
+
 try {
     // Créer une connexion PDO
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
