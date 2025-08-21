@@ -1,9 +1,9 @@
 <?php
 // Configuration de la connexion à la base de données
 $servername = "localhost";
-$username = "root"; // Remplace par ton utilisateur MySQL
+$username = "u456215259_abec_dons"; // Remplace par ton utilisateur MySQL
 $password = ""; // Remplace par ton mot de passe MySQL
-$dbname = "abec_dons";
+$dbname = "u456215259_abec_dons";
 
 try {
     // Créer une connexion PDO
