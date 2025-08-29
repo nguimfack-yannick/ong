@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-$conn = new mysqli("localhost", "root", "", "abec_dons");
+$conn = new mysqli("localhost", "u456215259_abec", "", "u456215259_abec_dons");
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
 // Check if the request method is POST

@@ -1,9 +1,9 @@
 <?php
 // Configuration de la connexion à la base de données
 $servername = "localhost";
-$username = "u456215259_abec_dons"; // Remplace par ton utilisateur MySQL
+$username = "root"; // Remplace par ton utilisateur MySQL
 $password = ""; // Remplace par ton mot de passe MySQL
-$dbname = "u456215259_abec_dons";
+$dbname = "abec_dons";
 
 
 try {

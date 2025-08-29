@@ -110,9 +110,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
-       <div class="flex-shrink-0 w-2/12 h-auto ">
-          <img src="santos.png" alt="logo " class="md:w-5/12">
-        </div>
+         <div class="flex-shrink-0 w-6/12 sm:w-4/12 md:w-2/12 h-auto flex justify-center">
+  <img src="santos.png" alt="logo" class="w-8/12 sm:w-6/12 md:w-5/12 lg:w-4/12">
+</div>
+
+
         <!-- Navigation Desktop -->
         <nav class="hidden md:flex space-x-4">
           <!-- <a href="#top" class="px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-200">Accueil</a>
@@ -334,3 +336,4 @@
   </script>
 </body>
 </html>
+santos/dashboard.php
