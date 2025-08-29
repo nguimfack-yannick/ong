@@ -254,44 +254,49 @@
         </div>
     </section>
 
-    <!-- Section Nos Actions -->
-    <section id="actions" class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-gray-900">Nos Actions</h2>
-            <p class="mt-4 font-bold text-gray-700 leading-relaxed">
-                Découvrez nos projets phares pour soutenir les hôpitaux et orphelinats. Nous mettons en œuvre divers programmes visant à améliorer l'accès aux soins et à offrir un environnement sûr et stimulant pour l'éducation des plus jeunes.
-            </p>
-            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="bg-white p-4 rounded shadow text-center">
-                    <h3 class="font-bold text-gray-800">Dons aux Hôpitaux</h3>
-                    <p class="text-gray-600 mt-2 font-bold">
-                        Fourniture de matériel médical essentiel, formations pour le personnel et soutien aux infrastructures sanitaires dans les zones démunies.
-                    </p>
-                </div>
-                <div class="bg-white p-4 rounded shadow text-center">
-                    <h3 class="font-bold text-gray-900">Soutien aux Orphelinats</h3>
-                    <p class="text-gray-600 mt-2 font-bold">
-                        Dons alimentaires, éducatifs et matériels pour offrir un environnement chaleureux et bien équipé aux enfants en difficulté.
-                    </p>
-                </div>
-                <div class="bg-white p-4 rounded shadow text-center">
-                    <h3 class="font-bold text-gray-900">Programmes Communautaires</h3>
-                    <p class="text-gray-600 mt-2 font-bold">
-                        Initiatives pour sensibiliser aux enjeux de santé et d’éducation, ateliers communautaires et partenariats locaux pour un soutien durable.
-                    </p>
-                </div>
-                <div class="bg-white p-4 rounded shadow text-center">
-                    <h3 class="font-bold text-gray-900">Campagnes de Sensibilisation</h3>
-                    <p class="text-gray-600 mt-2 font-bold">
-                        Organisation d’événements et de campagnes pour impliquer directement les citoyens et promouvoir une approche collective face aux défis sociaux.
-                    </p>
-                </div>
+<!-- Section Nos Actions -->
+<section id="actions" class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-gray-900">Nos Actions</h2>
+        <p class="mt-4 font-bold text-gray-700 leading-relaxed">
+            Découvrez nos projets phares pour soutenir les hôpitaux et orphelinats. Nous mettons en œuvre divers programmes visant à améliorer l'accès aux soins et à offrir un environnement sûr et stimulant pour l'éducation des plus jeunes.
+        </p>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-4 rounded shadow-lg text-center">
+                <img src="santos/image/fotos.jpg" alt="Dons aux Hôpitaux" class="w-full h-40 object-cover rounded-lg shadow-md">
+                <h3 class="font-bold text-gray-800 mt-2">Dons aux Hôpitaux</h3>
+                <p class="text-gray-600 mt-2">
+                    Fourniture de matériel médical essentiel, formations pour le personnel et soutien aux infrastructures sanitaires dans les zones démunies.
+                </p>
             </div>
-            <p class="mt-8 font-bold text-gray-600 leading-relaxed">
-                Chaque action, même petite, contribue à transformer des vies. Soutenez-nous et faites la différence dans la vie des plus démunis.
-            </p>
+            <div class="bg-white p-4 rounded shadow-lg text-center">
+                <img src="santos/image/fotos2.jpg" alt="Soutien aux Orphelinats" class="w-full h-40 object-cover rounded-lg shadow-md">
+                <h3 class="font-bold text-gray-800 mt-2">Soutien aux Orphelinats</h3>
+                <p class="text-gray-600 mt-2">
+                    Dons alimentaires, éducatifs et matériels pour offrir un environnement chaleureux et bien équipé aux enfants en difficulté.
+                </p>
+            </div>
+            <div class="bg-white p-4 rounded shadow-lg text-center">
+                <img src="santos/image/fotos.jpg" alt="Programmes Communautaires" class="w-full h-40 object-cover rounded-lg shadow-md">
+                <h3 class="font-bold text-gray-800 mt-2">Programmes Communautaires</h3>
+                <p class="text-gray-600 mt-2">
+                    Initiatives pour sensibiliser aux enjeux de santé et d’éducation, ateliers communautaires et partenariats locaux pour un soutien durable.
+                </p>
+            </div>
+            <div class="bg-white p-4 rounded shadow-lg text-center">
+                <img src="santos/image/fotos4.jpg" alt="Campagnes de Sensibilisation" class="w-full h-40 object-cover rounded-lg shadow-md">
+                <h3 class="font-bold text-gray-800 mt-2">Campagnes de Sensibilisation</h3>
+                <p class="text-gray-600 mt-2">
+                    Organisation d’événements et de campagnes pour impliquer directement les citoyens et promouvoir une approche collective face aux défis sociaux.
+                </p>
+            </div>
         </div>
-    </section>
+        <p class="mt-8 font-bold text-gray-600 leading-relaxed">
+            Chaque action, même petite, contribue à transformer des vies. Soutenez-nous et faites la différence dans la vie des plus démunis.
+        </p>
+    </div>
+</section>
+
 
     <!-- Section Nos Partenaires -->
     <section id="partners" class="py-16 bg-gray-200">
