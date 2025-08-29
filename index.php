@@ -43,13 +43,80 @@
         background-color: #ffffff;
         font-family: 'Inter', sans-serif; /* Utilisation de la police Inter */
       }
-      .font-all-bold, body, h1, h2, h3, p, a, li { font-weight: bold; }
-
-      /* Styles pour les boutons */
-      .don-button, .en-savoir-plus-button {
-        background-color: yellow; /* Jaune */
-        color: gray-800; /* Couleur du texte */
+      .partner-logo {
+        width: 120px;               /* Taille uniforme */
+        height: 120px;              /* Taille uniforme */
+        object-fit: cover;          /* Remplissage proportionnel */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Ombre douce derrière les logos */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
+
+      .partner-logo.center {
+        transform: scale(1.2);      /* Agrandissement du logo central */
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Ombre plus prononcée pour le central */
+      }
+
+      .carousel {
+        display: flex;
+        gap: 40px;                  /* Espacement entre les logos */
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.5s ease;
+      }
+
+      .carousel-container {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+      .dot.active {
+        background-color: #1E90FF;
+      }
+      .dropdown-menu {
+        background-color: white;
+        z-index: 50;
+      }
+      .arrow {
+        cursor: pointer;
+        font-size: 2rem;
+        color: #1E90FF;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+      }
+      .arrow-left {
+        left: 10px;
+      }
+      .arrow-right {
+        right: 10px;
+      }
+
+      /* Slider CSS (fallback simple) */
+      @keyframes slide {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-slide {
+        display: flex;
+        animation: slide 20s linear infinite;
+      }
+
+      /* Assurer texte en gras globalement */
+      .font-all-bold, body, h1, h2, h3, p, a, li { font-weight: bold; }
     </style>
 </head>
 <body id="top" x-data="{ mobileMenuOpen: false, dropdownOpen: false }" class="bg-white font-sans antialiased font-all-bold">
@@ -153,10 +220,10 @@
                     Une ONG dédiée à l’aide humanitaire : dons essentiels pour hôpitaux et orphelinats.
                 </p>
                 <div class="mt-8">
-                    <a href="santos/dons.php" class="inline-block don-button px-8 py-3 font-bold rounded-md hover:bg-gray-100 transition transform hover:scale-105">
+                    <a href="santos/dons.php" class="inline-block bg-yellow text-gray-800 px-8 py-3 font-bold rounded-md hover:bg-gray-100 transition transform hover:scale-105">
                         Faites un don
                     </a>
-                    <a href="#about" class="inline-block ml-4 en-savoir-plus-button px-8 py-3 font-bold rounded-md hover:bg-gray-700 transition transform hover:scale-105">
+                    <a href="#about" class="inline-block ml-4 bg-yellow text-gray-800 px-8 py-3 font-bold rounded-md hover:bg-gray-100 transition transform hover:scale-105">
                         En savoir plus
                     </a>
                 </div>
