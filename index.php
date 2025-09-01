@@ -13,6 +13,10 @@
     <!-- Police Inter -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
+    <!-- Swiper.js CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <script>
       tailwind.config = {
         theme: {
@@ -115,6 +119,41 @@
         animation: slide 20s linear infinite;
       }
 
+      /* Swiper Styles pour Hero Section */
+      .swiper-container {
+        width: 100%;
+        height: 100vh; /* Hauteur pleine pour la section Hero */
+        position: relative;
+      }
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Remplir l'espace tout en maintenant les proportions */
+      }
+      .swiper-slide {
+        position: relative;
+      }
+      .swiper-pagination-bullet {
+        background: #bbb;
+        opacity: 0.7;
+      }
+      .swiper-pagination-bullet-active {
+        background: #1E90FF; /* Correspond à votre couleur principale */
+        opacity: 1;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
       /* Assurer texte en gras globalement */
       .font-all-bold, body, h1, h2, h3, p, a, li { font-weight: bold; }
     </style>
@@ -153,7 +192,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <div class="flex-shrink-0 w-6/12 sm:w-4/12 md:w-2/12 h-auto flex justify-center">
+                <div class="flex-shrink-0 w-[150px] lg:w-[300px] md:w-[250px] h-auto flex justify-center">
                     <img src="abec.png" alt="logo" class="w-8/12 sm:w-6/12 md:w-5/12 lg:w-4/12">
                 </div>
 
@@ -208,10 +247,34 @@
         </div>
     </header>
 
-    <!-- Hero Section: image en arrière-plan (fotos4.jpg) + overlay dégradé -->
-    <section class="relative h-screen overflow-hidden bg-cover bg-center" style="background-image: url('santos/image/fotos.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center text-center">
-            <div>
+   
+    <!-- Hero Section avec Swiper Slider -->
+    <section class="relative h-screen overflow-hidden">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img src="http://localhost/ong/santos/image/enfant.png" alt="enfant">
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="http://localhost/ong/santos/image/eleve.png" alt="eleve">
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img src="http://localhost/ong/santos/image/vache.png" alt="vache negliger">
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <img src="http://localhost/ong/santos/image/revendique.png" alt="revendique">
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- Overlay pour le texte et les boutons -->
+        <div class="hero-overlay">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 class="text-5xl font-extrabold text-white sm:text-6xl relative inline-block">
                     <span class="invisible">Organisation du Bien-Être Communautaire</span>
                     <span class="absolute top-0 left-0">Organisation du Bien-Être Communautaire</span>
@@ -229,7 +292,6 @@
                 </div>
             </div>
         </div>
-
         <div class="absolute bottom-8 w-full flex justify-center z-10">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -254,49 +316,48 @@
         </div>
     </section>
 
-<!-- Section Nos Actions -->
-<section id="actions" class="py-16 bg-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold text-gray-900">Nos Actions</h2>
-        <p class="mt-4 font-bold text-gray-700 leading-relaxed">
-            Découvrez nos projets phares pour soutenir les hôpitaux et orphelinats. Nous mettons en œuvre divers programmes visant à améliorer l'accès aux soins et à offrir un environnement sûr et stimulant pour l'éducation des plus jeunes.
-        </p>
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-4 rounded shadow-lg text-center">
-                <img src="santos/image/fotos.jpg" alt="Dons aux Hôpitaux" class="w-full h-40 object-cover rounded-lg shadow-md">
-                <h3 class="font-bold text-gray-800 mt-2">Dons aux Hôpitaux</h3>
-                <p class="text-gray-600 mt-2">
-                    Fourniture de matériel médical essentiel, formations pour le personnel et soutien aux infrastructures sanitaires dans les zones démunies.
-                </p>
+    <!-- Section Nos Actions (restaurée à la grille originale) -->
+    <section id="actions" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900">Nos Actions</h2>
+            <p class="mt-4 font-bold text-gray-700 leading-relaxed">
+                Découvrez nos projets phares pour soutenir les hôpitaux et orphelinats. Nous mettons en œuvre divers programmes visant à améliorer l'accès aux soins et à offrir un environnement sûr et stimulant pour l'éducation des plus jeunes.
+            </p>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-4 rounded shadow-lg text-center">
+                    <img src="santos/image/fotos.jpg" alt="Dons aux Hôpitaux" class="w-full h-40 object-cover rounded-lg shadow-md">
+                    <h3 class="font-bold text-gray-800 mt-2">Dons aux Hôpitaux</h3>
+                    <p class="text-gray-600 mt-2">
+                        Fourniture de matériel médical essentiel, formations pour le personnel et soutien aux infrastructures sanitaires dans les zones démunies.
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded shadow-lg text-center">
+                    <img src="santos/image/fotos2.jpg" alt="Soutien aux Orphelinats" class="w-full h-40 object-cover rounded-lg shadow-md">
+                    <h3 class="font-bold text-gray-800 mt-2">Soutien aux Orphelinats</h3>
+                    <p class="text-gray-600 mt-2">
+                        Dons alimentaires, éducatifs et matériels pour offrir un environnement chaleureux et bien équipé aux enfants en difficulté.
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded shadow-lg text-center">
+                    <img src="santos/image/fotos.jpg" alt="Programmes Communautaires" class="w-full h-40 object-cover rounded-lg shadow-md">
+                    <h3 class="font-bold text-gray-800 mt-2">Programmes Communautaires</h3>
+                    <p class="text-gray-600 mt-2">
+                        Initiatives pour sensibiliser aux enjeux de santé et d’éducation, ateliers communautaires et partenariats locaux pour un soutien durable.
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded shadow-lg text-center">
+                    <img src="santos/image/fotos4.jpg" alt="Campagnes de Sensibilisation" class="w-full h-40 object-cover rounded-lg shadow-md">
+                    <h3 class="font-bold text-gray-800 mt-2">Campagnes de Sensibilisation</h3>
+                    <p class="text-gray-600 mt-2">
+                        Organisation d’événements et de campagnes pour impliquer directement les citoyens et promouvoir une approche collective face aux défis sociaux.
+                    </p>
+                </div>
             </div>
-            <div class="bg-white p-4 rounded shadow-lg text-center">
-                <img src="santos/image/fotos2.jpg" alt="Soutien aux Orphelinats" class="w-full h-40 object-cover rounded-lg shadow-md">
-                <h3 class="font-bold text-gray-800 mt-2">Soutien aux Orphelinats</h3>
-                <p class="text-gray-600 mt-2">
-                    Dons alimentaires, éducatifs et matériels pour offrir un environnement chaleureux et bien équipé aux enfants en difficulté.
-                </p>
-            </div>
-            <div class="bg-white p-4 rounded shadow-lg text-center">
-                <img src="santos/image/fotos.jpg" alt="Programmes Communautaires" class="w-full h-40 object-cover rounded-lg shadow-md">
-                <h3 class="font-bold text-gray-800 mt-2">Programmes Communautaires</h3>
-                <p class="text-gray-600 mt-2">
-                    Initiatives pour sensibiliser aux enjeux de santé et d’éducation, ateliers communautaires et partenariats locaux pour un soutien durable.
-                </p>
-            </div>
-            <div class="bg-white p-4 rounded shadow-lg text-center">
-                <img src="santos/image/fotos4.jpg" alt="Campagnes de Sensibilisation" class="w-full h-40 object-cover rounded-lg shadow-md">
-                <h3 class="font-bold text-gray-800 mt-2">Campagnes de Sensibilisation</h3>
-                <p class="text-gray-600 mt-2">
-                    Organisation d’événements et de campagnes pour impliquer directement les citoyens et promouvoir une approche collective face aux défis sociaux.
-                </p>
-            </div>
+            <p class="mt-8 font-bold text-gray-600 leading-relaxed">
+                Chaque action, même petite, contribue à transformer des vies. Soutenez-nous et faites la différence dans la vie des plus démunis.
+            </p>
         </div>
-        <p class="mt-8 font-bold text-gray-600 leading-relaxed">
-            Chaque action, même petite, contribue à transformer des vies. Soutenez-nous et faites la différence dans la vie des plus démunis.
-        </p>
-    </div>
-</section>
-
+    </section>
 
     <!-- Section Nos Partenaires -->
     <section id="partners" class="py-16 bg-gray-200">
@@ -359,7 +420,7 @@
         </div>
     </footer>
 
-    <!-- Animation texte + carousel script -->
+    <!-- Animation texte + carousel script + Swiper initialization -->
     <script>
       function letterAnimation() {
         return {
@@ -443,6 +504,22 @@
       }
 
       startAutoSlide();
+
+      // Initialize Swiper pour Hero Section
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1, // Une image à la fois
+        loop: true, // Défilement en boucle
+        speed: 1000, // Vitesse de transition pour un défilement fluide (1 seconde)
+        autoplay: {
+            delay: 4000, // 4 secondes par slide
+            disableOnInteraction: false, // Continuer l'autoplay après interaction
+            pauseOnMouseEnter: false, // Ne pas arrêter au survol
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+      });
     </script>
 </body>
 </html>

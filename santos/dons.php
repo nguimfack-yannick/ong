@@ -48,41 +48,26 @@
 
   <body id="top" class="bg-white font-sans antialiased">
       <!-- Top Nav Bar Bleu avec icônes et coordonnées -->
-      <nav class="bg-primary text-white">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div class="flex items-center justify-between h-10">
-                  <!-- Icônes des réseaux sociaux -->
-                 <div class="flex items-center space-x-4">
-      
-      <!-- Facebook -->
-      <a href="https://www.facebook.com/profile.php?id=61568266295634" target="_blank" class="hover:text-gray-200" title="Facebook">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M22,12A10,10,0,1,0,12,22V14H9v-3h3V8.5a3.5,3.5,0,0,1,3.75-3.5,15.35,15.35,0,0,1,2.25.19V8H16.5c-1.5,0-1.75.71-1.75,1.75V11H18l-.5,3H14.75v8A10,10,0,0,0,22,12Z"/>
-        </svg>
-      </a>
-   <!-- Logo WhatsApp fonctionnel -->
-<a href="https://whatsapp.com/channel/0029VaYTsNkD8SE42sDpnk1w" target="_blank" class="hover:text-gray-200" title="WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" fill="white" viewBox="0 0 24 24">
-      <path d="M12.04 2C6.55 2 2 6.52 2 12c0 2.12.63 4.09 1.81 5.78L2 22l4.36-1.75C8 21.3 10 22 12.05 22 17.54 22 22 17.48 22 12S17.54 2 12.04 2m0 18c-1.79 0-3.5-.52-4.98-1.5l-.36-.22-2.59 1.04.7-2.46-.26-.38A8 8 0 0 1 4 12c0-4.41 3.58-8 8.04-8 4.42 0 8 3.59 8 8s-3.58 8-8 8m4.43-5.53c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.23-.62.77-.76.93-.14.15-.28.17-.52.05-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.23-.01-.35.1-.47.1-.1.24-.27.36-.4.12-.13.16-.23.24-.39.08-.15.04-.29-.02-.41-.05-.12-.54-1.3-.74-1.77-.2-.48-.4-.41-.54-.42h-.46c-.15 0-.4.06-.61.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.94 2.35.12.15 1.61 2.6 3.9 3.64.54.23.96.37 1.28.47.54.17 1.03.15 1.42.09.43-.06 1.42-.58 1.62-1.15.2-.57.2-1.06.14-1.15-.06-.09-.22-.15-.46-.27Z"/>
-    </svg>
-</a>
-
-
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/abec.officiel/" target="_blank" class="hover:text-gray-200" title="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M7.75,2A5.75,5.75,0,0,0,2,7.75v8.5A5.75,5.75,0,0,0,7.75,22h8.5A5.75,5.75,0,0,0,22,16.25v-8.5A5.75,5.75,0,0,0,16.25,2Zm8.5,1.5A4.25,4.25,0,0,1,20.5,7.75v8.5A4.25,4.25,0,0,1,16.25,20.5h-8.5A4.25,4.25,0,0,1,3.5,16.25v-8.5A4.25,4.25,0,0,1,7.75,3.5h8.5ZM12,7a5,5,0,1,0,5,5A5,5,0,0,0,12,7Zm0,1.5a3.5,3.5,0,1,1-3.5,3.5A3.5,3.5,0,0,1,12,8.5Zm5.25-.88a1.13,1.13,0,1,1-1.13,1.13A1.13,1.13,0,0,1,17.25,7.62Z"/>
-        </svg>
-      </a>
-
-    </div>
-                  <!-- Coordonnées de contact -->
-                  <div class="text-sm">
-                      <span>Contact: contact@universalwelfare.org</span>
-                  </div>
-              </div>
-          </div>
-      </nav>
+    <nav class="bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-10">
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.facebook.com/profile.php?id=61568266295634" target="_blank" class="hover:opacity-80" title="Facebook">
+                        <img src="../feacebook.jpg" alt="Facebook" class="w-6 h-6 rounded-full">
+                    </a>
+                    <a href="https://whatsapp.com/channel/0029VaYTsNkD8SE42sDpnk1w" target="_blank" class="hover:opacity-80" title="WhatsApp">
+                        <img src="../wastapp.jpg" alt="WhatsApp" class="w-6 h-6 rounded-full">
+                    </a>
+                    <a href="https://www.instagram.com/abec.officiel/" target="_blank" class="hover:opacity-80" title="Instagram">
+                        <img src="../insta.jpg" alt="Instagram" class="w-6 h-6 rounded-full">
+                    </a>
+                </div>
+                <a href="mailto:globaluniversalwelfare@gmail.com" class="hover:opacity-80" title="Email">
+                    <img src="../m.jpg" alt="Email" class="w-6 h-6 rounded-full">
+                </a>
+            </div>
+        </div>
+    </nav>
 
 
 
@@ -280,22 +265,39 @@
       </section>
 
       <!-- Footer -->
-      <footer id="contact" class="bg-primary text-white" role="contentinfo">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-              <div class="flex flex-col items-left">
-                  <nav>
-                      <ul class="flex flex-col space-y-2 text-left">
-                          <li><a href="index.php" class="text-sm hover:text-gray-200">Accueil</a></li>
-                          <li><a href="apropos.html" class="text-sm hover:text-gray-200">À propos</a></li>
-                          <li><a href="nosactions.html" class="text-sm hover:text-gray-200">Nos Actions</a></li>
-                          <li><a href="contact.html" class="text-sm hover:text-gray-200">Contact</a></li>
-                      </ul>
-                  </nav>
-                  <a href="#top" class="mt-4 inline-block text-sm hover:text-gray-200">Retour en haut</a>
-                  <p class="text-sm mt-4">© 2025 ABEC - ONG Humanitaire. Tous droits réservés.</p>
-              </div>
-          </div>
-      </footer>
+        <footer id="contact" class="bg-primary text-white" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col items-center text-center">
+                <nav>
+                    <ul class="flex flex-col space-y-2">
+                        <li><a href="#top" class="text-sm font-bold hover:text-gray-200">Accueil</a></li>
+                        <li><a href="#about" class="text-sm font-bold hover:text-gray-200">À propos</a></li>
+                        <li><a href="#actions" class="text-sm font-bold hover:text-gray-200">Nos Actions</a></li>
+                        <li><a href="actualites.html" class="text-sm font-bold hover:text-gray-200">Actualités</a></li>
+                        <li><a href="#contact" class="text-sm font-bold hover:text-gray-200">Contact</a></li>
+                    </ul>
+                </nav>
+                <hr class="my-4 border-gray-300 w-full" />
+                <p class="text-sm font-bold mt-4">Basée à Yaoundé, Cameroun</p>
+                <a href="#top" class="mt-4 inline-block text-sm font-bold hover:text-gray-200">Retour en haut</a>
+                <hr class="my-4 border-gray-300 w-full" />
+                <p class="text-sm font-bold mt-4">Organisation internationale. Tous droits réservés.</p>
+                <p class="text-xs mt-2">Suivez-nous sur nos réseaux sociaux :</p>
+                <div class="flex space-x-4 mt-2">
+                    <a href="https://www.facebook.com/profile.php?id=61568266295634" target="_blank" class="hover:opacity-80" title="Facebook">
+                        <img src="feacebook.jpg" alt="Facebook" class="w-6 h-6 rounded-full">
+                    </a>
+                    <a href="https://whatsapp.com/channel/0029VaYTsNkD8SE42sDpnk1w" target="_blank" class="hover:opacity-80" title="WhatsApp">
+                        <img src="wastapp.jpg" alt="WhatsApp" class="w-6 h-6 rounded-full">
+                    </a>
+                    <a href="https://www.instagram.com/abec.officiel/" target="_blank" class="hover:opacity-80" title="Instagram">
+                        <img src="insta.jpg" alt="Instagram" class="w-6 h-6 rounded-full">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
   </body>
 
   </html>
