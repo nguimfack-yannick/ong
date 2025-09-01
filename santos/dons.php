@@ -268,6 +268,7 @@
         <footer id="contact" class="bg-primary text-white" role="contentinfo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div class="flex flex-col items-center text-center">
+                <!-- Première partie du footer -->
                 <nav>
                     <ul class="flex flex-col space-y-2">
                         <li><a href="#top" class="text-sm font-bold hover:text-gray-200">Accueil</a></li>
@@ -277,27 +278,27 @@
                         <li><a href="#contact" class="text-sm font-bold hover:text-gray-200">Contact</a></li>
                     </ul>
                 </nav>
-                <hr class="my-4 border-gray-300 w-full" />
+                <hr class="my-4 border-gray-300 w-full" /> <!-- Ligne de séparation ajoutée ici -->
                 <p class="text-sm font-bold mt-4">Basée à Yaoundé, Cameroun</p>
                 <a href="#top" class="mt-4 inline-block text-sm font-bold hover:text-gray-200">Retour en haut</a>
                 <hr class="my-4 border-gray-300 w-full" />
+                <!-- Deuxième partie du footer -->
                 <p class="text-sm font-bold mt-4">Organisation internationale. Tous droits réservés.</p>
                 <p class="text-xs mt-2">Suivez-nous sur nos réseaux sociaux :</p>
                 <div class="flex space-x-4 mt-2">
                     <a href="https://www.facebook.com/profile.php?id=61568266295634" target="_blank" class="hover:opacity-80" title="Facebook">
-                        <img src="feacebook.jpg" alt="Facebook" class="w-6 h-6 rounded-full">
+                        <img src="../feacebook.jpg" alt="Facebook" class="w-6 h-6 rounded-full">
                     </a>
                     <a href="https://whatsapp.com/channel/0029VaYTsNkD8SE42sDpnk1w" target="_blank" class="hover:opacity-80" title="WhatsApp">
-                        <img src="wastapp.jpg" alt="WhatsApp" class="w-6 h-6 rounded-full">
+                        <img src="../wastapp.jpg" alt="WhatsApp" class="w-6 h-6 rounded-full">
                     </a>
                     <a href="https://www.instagram.com/abec.officiel/" target="_blank" class="hover:opacity-80" title="Instagram">
-                        <img src="insta.jpg" alt="Instagram" class="w-6 h-6 rounded-full">
+                        <img src="../insta.jpg" alt="Instagram" class="w-6 h-6 rounded-full">
                     </a>
                 </div>
             </div>
         </div>
     </footer>
-
   </body>
 
   </html>

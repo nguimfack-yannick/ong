@@ -247,7 +247,7 @@
         </div>
     </header>
 
-   
+    <img src="./santos/image/enfant.png" alt="enfant">
     <!-- Hero Section avec Swiper Slider -->
     <section class="relative h-screen overflow-hidden">
         <div class="swiper-container">
